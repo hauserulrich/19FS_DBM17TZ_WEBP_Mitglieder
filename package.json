@@ -1,0 +1,47 @@
+{
+  "name": "Mitgliederverwaltung",
+  "version": "1.0.0",
+  "description": "project to manage memebers of a sports club",
+  "main": "index.js",
+  "dependencies": {
+    "jsdoc": "^3.5.5"
+  },
+  "devDependencies": {
+    "escape-string-regexp": "^1.0.5",
+    "htmllint-cli": "^0.0.7",
+    "stylelint": "^9.10.1",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-google": "^0.12.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-jest": "^22.2.2",
+    "jest": "^24.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hauserulrich/19FS_DBM17TZ_WEBP_Mitglieder"
+  },
+  "keywords": [
+    "travis",
+    "html",
+    "css",
+    "js",
+    "learn",
+    "CI",
+    "lint",
+    "jest",
+    "doxygen",
+    "unit testing"
+  ],
+  "author": "Ulrich Hauser-Ehninger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hauserulrich/19FS_DBM17TZ_WEBP_Mitglieder/issues"
+  },
+  "homepage": "https://github.com/hauserulrich/19FS_DBM17TZ_WEBP_Mitglieder#readme"
+}
