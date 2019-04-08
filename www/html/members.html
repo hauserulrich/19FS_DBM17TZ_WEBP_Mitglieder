@@ -1,0 +1,55 @@
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+	<title>Mitgliederverwaltung</title>
+	<link rel="stylesheet" type="text/css" href="..\style\members.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/members.js"></script>
+</head>
+<body>
+	<form>
+		<!-- Mitglieder-ID, Kein Input möglich-->
+		<p><label>Mitglieder-ID:</label>
+			<input id="m_id" type="text" name="m_id" disabled></p>
+		<!-- Inputfelder-->
+		<p><label>Nachname*:</label>
+			<input id="nachname" type="text" name="nachname" placeholder="erforderlich" required></p>
+		<p><label>Vorname*:</label>
+			<input id="vorname"type="text" name="vorname" placeholder="erforderlich" required></p>
+		<p><label>Geburtsdatum*:</label>
+			<input id="geburtsdatum"type="date" name="geburtsdatum" required></p>
+		<p><label>Strasse:</label>
+			<input id="strasse"type="text" name="strasse"></p>
+		<p><label>Strassennummer:</label>
+			<input id="strassennummer"type="text" name="strnummer"></p>
+		<p><label>PLZ:</label></p>
+			<p><input id="plz" type="text" name="plz"></p>
+		<p><label>Ort:</label>
+			<input id="ort" type="text" name="ort"></p>
+		<p><label>Vereinsposition:</label>
+			<input id="vereinsposition"type="text" name="vereinsposition"></p>
+		<p><label>Grad:</label>
+			<input id="grad"type="text" name="grad"></p>
+		<p><label>Klassifizierung:</label>
+			<input id="klassifizierung"type="text" name="klassifizierung"></p>
+		<p><label>Eintritt:</label>
+			<input id="eintritt"type="date" name="eintritt"></p>	
+		<p><label>Austritt:</label>
+			<input id="austritt"type="date" name="austritt"></p>
+		<p><label>Mitglied seit:</label>
+			<input id="von_dat"type="date" name="von_dat"></p>
+		<p><label>Mitglied bis:</label>
+			<input id="bis_dat"type="date" name="bis_dat"></p>
+		<p><label>Erstellt am:</label>
+			<input id="erstellt"type="date" name="erstellt"></p>
+		<p><label>Aktiv:</label>
+			<input id="aktiv"type="checkbox" name="aktiv"></p>
+		<!-- neuer Umbruch -->
+		<br>
+		<button id="buttonCreate" type="submit" value="Absenden" class="btn">Erstellen</button>
+		<button id="buttonEdit" type="button" class="btn">Ändern</button>
+		<button id="buttonDelete"type="button" class="btn">Löschen</button>
+	</form>
+		<!-- Buttons-->
+</body>
+</html>
+

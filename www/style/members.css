@@ -1,0 +1,33 @@
+body
+{
+	background-color: white;
+	color: black;
+}
+
+form {
+	width: 35em;
+	padding-top: 3em;
+}
+
+label {
+	float: left;
+}
+
+input {
+	padding: 0.4%;
+	width: 50%;
+	border: 1px solid lightblue;
+}
+
+label {
+	text-align: left;
+	margin-left: 10%;
+	line-height: 1.5;
+	width: 30%;
+}
+
+button {
+	width: 15%;
+	margin-left: 12%;
+	margin-top: 2%;
+}
