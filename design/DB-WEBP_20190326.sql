@@ -1,4 +1,4 @@
-CREATE TABLE mitglieder
+CREATE TABLE 19FS_DBM17TZ_WEBP_Mitglieder_mitglieder
 (	  m_id INTEGER NOT NULL AUTO_INCREMENT
 	, nachname VARCHAR(30) NOT NULL
 	, vorname VARCHAR(30) NOT NULL
@@ -15,7 +15,8 @@ CREATE TABLE mitglieder
 	, vereinsposition VARCHAR(30)
 	, grad VARCHAR(30)
 	, klassifizierung VARCHAR(30)
-	, erstellt TIMESTAMP
+	, erstellt TIMESTAMP,
+	primary key (m_id)
 );
 
 commit;
