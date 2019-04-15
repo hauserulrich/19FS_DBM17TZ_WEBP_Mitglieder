@@ -1,11 +1,291 @@
-<html xmlns="https://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
+<!-- Begin HEAD content -->
+
+<!-- STYLE FÜR NAVBAR LINKS -->
+<style>
+.navbar-nav li a {
+ line-height: 100px;
+}
+.text-left {
+        max-width: 40%;
+        float:left;
+    }
+.text-right {
+        max-width: 40%;
+        float: right;
+        }
+footer {
+    float: left;
+    }
+</style>
+
 <head>
-	<title>19FS_DBM17TZ_WEBP_Mitglieder</title>
-	<link rel="stylesheet" type="text/css" href="..\style\main.css">
-	<script src="../js/main.js"></script>
+    <title>Mitgliederverwaltung</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
 </head>
+<!-- End HEAD content -->
+   
 <body>
-	<h1>19FS DBM17TZ WEBP Mitglieder</h1>
-    asdfghjklöä
+
+<!-- JUMBOTRON -->
+<div class="jumbotron" style="margin-bottom:0">
+  <h1>Mitgliederverwaltungs Tool</h1>
+  <p>Hochschule für Technik und Wirtschaft in Chur</p> 
+</div>
+<!-- END JUMBOTRON -->
+
+<!-- NAVBAR WELCHE WENN KLEINERES FENSTER ZU EINEM BUTTON WIRD -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav text-center">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html"> <img src="images/sportclubhtw.jpg" alt="Sportclub HTW Chur" width="100px" height="100px"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Übersicht</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="verwaltung.html">Verwaltung</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<!-- END NAVBAR -->
+    
+<!-- CONTENT FÜR TABELLE ETC. -->
+
+<div class="container" style="margin-top:20px">
+
+      <table class="table table-sm table-bordered table-hover">  
+       <!-- Erstellung Tabellen-Style: sm, bordered, hover-->
+
+
+        <thead class="thead-light">
+          <!-- Erstellung Kopfzeile Tabelle mit grauer Farbe-->
+
+          <tr>
+             <!-- Spalten-Titel-->
+            <th>#</th>
+            <th>Nachname</th>
+            <th>Vorname</th>
+            <th>Geburtsdatum</th>
+            <th>Ort</th>
+            <th>Status</th>
+            <th>Vereinsposition</th>
+            <th>Klassifizierung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+             <!-- Erstellung Zeile 1-->
+          <td>1</td>
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+
+             <td>2</td>
+             <!-- Erstellung Zeile 2-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>3</td>
+             <!-- Erstellung Zeile 3-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>4</td>
+             <!-- Erstellung Zeile 4-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>5</td>
+             <!-- Erstellung Zeile 5-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>6</td>
+             <!-- Erstellung Zeile 6-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>7</td>
+             <!-- Erstellung Zeile 7-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>8</td>
+             <!-- Erstellung Zeile 8-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>9</td>
+             <!-- Erstellung Zeile 9-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>10</td>
+             <!-- Erstellung Zeile 10-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>11</td>
+             <!-- Erstellung Zeile 11-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>12</td>
+             <!-- Erstellung Zeile 12-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>13</td>
+             <!-- Erstellung Zeile 13-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>14</td>
+             <!-- Erstellung Zeile 14-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+          <tr>
+             <td>15</td>
+             <!-- Erstellung Zeile 15-->
+            <td>Muster</td>
+            <td>Frank</td>
+            <td>13.10.1993</td>
+            <td>Bern</td>
+            <td>Aktiv</td>
+            <td>Leiter</td>
+            <td>Senior</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    <!-- ENDE CONTENT FÜR TABELLE ETC. -->
+    <div>
+    <!-- HINZUFÜGEN BUTTON -->
+    <div class="text-left">
+    <a href="https://www.google.com/" class="btn btn-primary btn-sm" role="button">Mitglied hinzuf&uuml;gen</a>
+        </div>
+    <!-- ENDE BUTTON -->
+
+
+
+    <!-- ZURÜCK&Vorwärts BUTTON -->
+    <div class="text-right">
+        <a href="https://www.google.com/" class="btn btn-primary btn-sm" role="button">Zur&uuml;ck</a>
+        <a href="https://www.google.com/" class="btn btn-primary btn-sm" role="button">Weiter</a>
+    </div>
+    </div>
+</div>
+<!-- ENDE BUTTON -->
+    
+    
+<!-- FOOTER -->
+<footer class="container" style="margin-bottom:inherit">
+<div class="footer">
+  <p>Footer</p>
+</div>
+</footer>
+<!-- ENDE FOOTER -->
+
+ <!-- Jquery, ajax, bootstrap Linking -->
+    <link href="sticky-footer.css" rel="stylesheet.footer">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+
