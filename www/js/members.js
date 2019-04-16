@@ -112,6 +112,8 @@ function createMember(){
 	member.aktiv = document.querySelector("#aktiv").value;
 	console.log(member);
 	console.log(member.vorname);
+	var string = ".php?nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strassennummer=" + member.strassennummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
+	console.log(string);
 }
 
 
