@@ -19,7 +19,7 @@
 		<p><label>Strasse:</label>
 			<input id="strasse"type="text" name="strasse" onchange="strasseValidation()" maxlength="30"></p>
 		<p><label>Strassennummer:</label>
-			<input id="strassennummer"type="text" maxlength="4" name="strnummer" onchange="strNuValidation()"></p>
+			<input id="strassennummer"type="text" maxlength="4" name="strnummer"></p>
 		<p><label>PLZ:</label>
 			<input id="plz" type="text" name="plz" onchange="plzValidation()"></p>
 		<p><label>Ort:</label>
@@ -45,7 +45,7 @@
 		<!-- neuer Umbruch -->
 		<br>
 		<!-- Buttons -->
-		<button id="buttonCreate" type="submit" value="Absenden" class="btn">Erstellen</button>
+		<button id="buttonCreate" type="submit" value="Absenden" class="btn" onclick="createMember()">Erstellen</button>
 		<button id="buttonEdit" type="button" class="btn">Ändern</button>
 		<button id="buttonDelete"type="button" class="btn">Löschen</button>
 	</form>

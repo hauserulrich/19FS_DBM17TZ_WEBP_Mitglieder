@@ -21,7 +21,7 @@ function leaveFieldColor(){
 
 // Validierung beim Nachname
 function nachNaValidation(){
-	var regEx = "^[a-z]+$";
+	var regEx = "^[a-zA-Z]+$";
 	var nachNaEingabe = document.getElementById("nachname");
 	if (!nachNaEingabe.value.match(regEx)){
 		nachNaEingabe.style.color ="red";
@@ -33,7 +33,7 @@ function nachNaValidation(){
 
 // Validierung beim Vornamen
 function vorNaValidation(){
-	var regEx = "^[a-z]+$";
+	var regEx = "^[a-zA-Z]+$";
 	var vorNaEingabe = document.getElementById("vorname");
 	if (!vorNaEingabe.value.match(regEx)){
 		vorNaEingabe.style.color ="red";
@@ -45,7 +45,7 @@ function vorNaValidation(){
 
 // Validierung bei der Strasse 
 function strasseValidation(){
-	var regEx = "^[a-z]+$";
+	var regEx = "^[a-zA-Z]+$";
 	var strasseEingabe = document.getElementById("strasse");
 	if (!strasseEingabe.value.match(regEx)){
 		strasseEingabe.style.color ="red";
@@ -55,9 +55,10 @@ function strasseValidation(){
 	}
 }
 
-// Validierung bei StrassenNummer
-function strNuValidation(){
-	var regEx = "^[0-9]{3}$";
+// Validierung bei StrassenNummer 
+// Braucht es nicht, da es auch 5B sein kann
+/*function strNuValidation(){
+	var regEx = "^\d+[a-zA-Z]*$";
 	var strNuEingabe = document.getElementById("strassennummer");
 	if (!strNuEingabe.value.match(regEx)){
 		strNuEingabe.style.color ="red";
@@ -65,7 +66,7 @@ function strNuValidation(){
 	} else {
 		strNuEingabe.style.color ="black";
 	}
-}
+}*/
 
 // Validierung bei PLZ
 function plzValidation(){
@@ -81,7 +82,7 @@ function plzValidation(){
 
 // Validierung bei Ort
 function ortValidation(){
-	var regEx = "^[a-z]+$";
+	var regEx = "^[a-zA-Z]+$";
 	var ortEingabe = document.getElementById("ort");
 	if (!ortEingabe.value.match(regEx)){
 		ortEingabe.style.color ="red";
@@ -89,6 +90,28 @@ function ortValidation(){
 	} else {
 		ortEingabe.style.color ="black";
 	}
+}
+
+function createMember(){
+	var member = new Object();
+	member.nachname = document.querySelector("#nachname").value;
+	member.vorname = document.querySelector("#vorname").value;
+	member.geburtsdatum = document.querySelector("#geburtsdatum").value;
+	member.strasse = document.querySelector("#strasse").value;
+	member.strassennummer = document.querySelector("#strassennummer").value;
+	member.plz = document.querySelector("#plz").value;
+	member.ort = document.querySelector("#ort").value;
+	member.vereinsposition = document.querySelector("#vereinsposition").value;
+	member.grad = document.querySelector("#grad").value;
+	member.klassifizierung = document.querySelector("#klassifizierung").value;
+	member.eintritt = document.querySelector("#eintritt").value;
+	member.austritt = document.querySelector("#austritt").value;
+	member.von_dat = document.querySelector("#von_dat").value;
+	member.bis_dat = document.querySelector("#bis_dat").value;
+	member.erstellt = document.querySelector("#erstellt").value;
+	member.aktiv = document.querySelector("#aktiv").value;
+	console.log(member);
+	console.log(member.vorname);
 }
 
 
