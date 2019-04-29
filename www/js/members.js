@@ -94,6 +94,7 @@ function ortValidation(){
 
 function createMember(){
 	var member = new Object();
+	member.m_id = document.querySelector("#m_id").value;
 	member.nachname = document.querySelector("#nachname").value;
 	member.vorname = document.querySelector("#vorname").value;
 	member.geburtsdatum = document.querySelector("#geburtsdatum").value;
@@ -112,9 +113,57 @@ function createMember(){
 	member.aktiv = document.querySelector("#aktiv").value;
 	console.log(member);
 	console.log(member.vorname);
-	var string = ".php?nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strassennummer=" + member.strassennummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
+	var string = ".php?m_id=" + member.m_id + "&nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strassennummer=" + member.strassennummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
 	console.log(string);
 }
+
+//* Funktion für Datum, Stunden und Minuten werden weggeschnitten
+function dateConversion(dateDelivery){
+	dateDelivery = dateDelivery.slice(0,10);
+	console.log(dateDelivery);
+	return dateDelivery;
+}
+
+//* Funktion für Checkbox "Aktiv"
+function activeValidation(checkbox) {
+	if (checkbox == "1") {
+    	document.getElementById("aktiv").checked = true;
+	}
+	else{
+		document.getElementById("aktiv").checked = false;
+	}
+}
+
+//*Aufruf zur Datenbank und holt (zukünftig) Single Record via JSON
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+//*ReadyState 4 = Operation Complete (wenn fertig geladen), Status 200 = HTTP verfügbar (OK)
+  if (this.readyState == 4 && this.status == 200) {
+    getMember = JSON.parse(this.responseText);
+    console.log(getMember[0].nachname);
+    document.getElementById("m_id").value = getMember[0].m_id;
+    document.getElementById("nachname").value = getMember[0].nachname;
+    document.getElementById("vorname").value = getMember[0].vorname;
+    document.getElementById("geburtsdatum").value = getMember[0].geburtsdatum;
+    document.getElementById("strasse").value = getMember[0].strasse;
+    document.getElementById("strassennummer").value = getMember[0].strnummer;
+    document.getElementById("plz").value = getMember[0].plz;
+    document.getElementById("ort").value = getMember[0].ort;
+    document.getElementById("vereinsposition").value = getMember[0].vereinsposition;
+    document.getElementById("grad").value = getMember[0].grad;
+    document.getElementById("klassifizierung").value = getMember[0].klassifizierung;
+    document.getElementById("eintritt").value = getMember[0].eintritt;
+    document.getElementById("austritt").value = getMember[0].austritt;
+    document.getElementById("von_dat").value = getMember[0].von_dat;
+    document.getElementById("bis_dat").value = getMember[0].bis_dat;
+    document.getElementById("erstellt").value = dateConversion(getMember[0].erstellt);
+    document.getElementById("aktiv").value = activeValidation(getMember[0].aktiv);
+  }
+};
+xmlhttp.open("GET", "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/all.php", true);
+xmlhttp.send();
+
+
 
 
 
