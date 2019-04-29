@@ -27,6 +27,27 @@ footer {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
 	<script src="../js/table_creation.js"></script>
+	<script src="../js/forward_button.js"></script>
+	<script src="../js/read_data.js"></script>
+	<script>
+	var table_site = 0;
+	var mitgliederObj;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function()
+	{
+	  if (this.readyState == 4 && this.status == 200)
+	  {
+		var mitgliederObj = JSON.parse(this.responseText);
+		function_forward(mitgliederObj);
+	  };
+	}
+	xmlhttp.open("GET", "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/all.php", true);
+	xmlhttp.send();
+	
+	window.addEventListener('load', init_button);
+	
+		
+	</script>
 </head>
 <!-- End HEAD content -->
    
@@ -100,8 +121,8 @@ footer {
 
     <!-- ZURÜCK&Vorwärts BUTTON -->
     <div class="text-right">
-        <a href="https://www.google.com/" class="btn btn-primary btn-sm" role="button">Zur&uuml;ck</a>
-        <a href="https://www.google.com/" class="btn btn-primary btn-sm" role="button">Weiter</a>
+        <a id="backward" href="#" class="btn btn-primary btn-sm" role="button">Zur&uuml;ck</a>
+        <a id="forward" href="#" class="btn btn-primary btn-sm" role="button">Weiter</a>
     </div>
     </div>
 </div>
