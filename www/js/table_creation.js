@@ -2,6 +2,7 @@ function init() {
 //zählt die Einträge im JSON
 	var count_member = 15;
 	
+	
   //body reference 
   var tbody = document.getElementsByTagName("tbody")[0];
 
