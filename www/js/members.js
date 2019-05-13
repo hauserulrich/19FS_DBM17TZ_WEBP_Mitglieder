@@ -1,11 +1,21 @@
 // Initialisierung wenn Dokument fertig geladen ist
 $(document).ready(init);
 
+
+
 // Beim Klicken auf Feld, Farbe ändern - INIT Funktion an erster Stelle
 function init(){
 	$("input")
 		.focus(enterFieldColor)
 		.blur(leaveFieldColor);
+	// holt member id aus url
+	var url = new URL(window.location);
+	var m_id = url.searchParams.get("m_id");
+	if (m_id != null) // wenn m_id existiert, dann besteht der User in der DB
+	{
+		getSingleMember(m_id); // hol die daten auf der DB
+	}	 
+	
 }
 // Farbe von Feld ändert sich in grau wenn man in Feld klickt
 function enterFieldColor(){
@@ -99,7 +109,7 @@ function createMember(){
 	member.vorname = document.querySelector("#vorname").value;
 	member.geburtsdatum = document.querySelector("#geburtsdatum").value;
 	member.strasse = document.querySelector("#strasse").value;
-	member.strassennummer = document.querySelector("#strassennummer").value;
+	member.strnummer = document.querySelector("#strnummer").value;
 	member.plz = document.querySelector("#plz").value;
 	member.ort = document.querySelector("#ort").value;
 	member.vereinsposition = document.querySelector("#vereinsposition").value;
@@ -109,12 +119,23 @@ function createMember(){
 	member.austritt = document.querySelector("#austritt").value;
 	member.von_dat = document.querySelector("#von_dat").value;
 	member.bis_dat = document.querySelector("#bis_dat").value;
-	member.erstellt = document.querySelector("#erstellt").value;
+	member.erstellt = dateConversion(document.querySelector("#erstellt").value);
 	member.aktiv = document.querySelector("#aktiv").value;
 	console.log(member);
 	console.log(member.vorname);
-	var string = ".php?m_id=" + member.m_id + "&nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strassennummer=" + member.strassennummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
-	console.log(string);
+	var serverDestination = "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/setmember.php";
+	if (member.m_id != null) 
+	{	
+		var setMemberUrl = serverDestination + "?m_id=" + member.m_id + "&nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strnummer=" + member.strnummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
+	} 
+	else
+	{
+		var setMemberUrl = serverDestination + "?nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strnummer=" + member.strnummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
+	}
+	console.log(setMemberUrl);
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", setMemberUrl, true);
+	xmlhttp.send();
 }
 
 //* Funktion für Datum, Stunden und Minuten werden weggeschnitten
@@ -134,35 +155,42 @@ function activeValidation(checkbox) {
 	}
 }
 
-//*Aufruf zur Datenbank und holt (zukünftig) Single Record via JSON
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-//*ReadyState 4 = Operation Complete (wenn fertig geladen), Status 200 = HTTP verfügbar (OK)
-  if (this.readyState == 4 && this.status == 200) {
-    getMember = JSON.parse(this.responseText);
-    console.log(getMember[0].nachname);
-    document.getElementById("m_id").value = getMember[0].m_id;
-    document.getElementById("nachname").value = getMember[0].nachname;
-    document.getElementById("vorname").value = getMember[0].vorname;
-    document.getElementById("geburtsdatum").value = getMember[0].geburtsdatum;
-    document.getElementById("strasse").value = getMember[0].strasse;
-    document.getElementById("strassennummer").value = getMember[0].strnummer;
-    document.getElementById("plz").value = getMember[0].plz;
-    document.getElementById("ort").value = getMember[0].ort;
-    document.getElementById("vereinsposition").value = getMember[0].vereinsposition;
-    document.getElementById("grad").value = getMember[0].grad;
-    document.getElementById("klassifizierung").value = getMember[0].klassifizierung;
-    document.getElementById("eintritt").value = getMember[0].eintritt;
-    document.getElementById("austritt").value = getMember[0].austritt;
-    document.getElementById("von_dat").value = getMember[0].von_dat;
-    document.getElementById("bis_dat").value = getMember[0].bis_dat;
-    document.getElementById("erstellt").value = dateConversion(getMember[0].erstellt);
-    document.getElementById("aktiv").value = activeValidation(getMember[0].aktiv);
-  }
-};
-xmlhttp.open("GET", "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/all.php", true);
-xmlhttp.send();
+function getSingleMember(m_id){
+	//*Aufruf zur Datenbank und holt Single Record via JSON
+	var xmlhttp = new XMLHttpRequest();
+	// zusammenschneiden der URL
+	var getMemberUrl = "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/getmember.php?m_id="+m_id+""; // m_id kommt von INIT
+	// Aufruf zum API
+	xmlhttp.open("GET", getMemberUrl, true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function()
+		{
+			//*ReadyState 4 = Operation Complete (wenn fertig geladen), Status 200 = HTTP verfügbar (OK), [0] impliziert immer den ersten Eintrag
+  			if (this.readyState == 4 && this.status == 200)
+  			{
+   				getMember = JSON.parse(this.responseText);
+   				console.log(getMember[0].nachname);
+   				document.getElementById("m_id").value = getMember[0].m_id;
+   				document.getElementById("nachname").value = getMember[0].nachname;
+   				document.getElementById("vorname").value = getMember[0].vorname;
+   				document.getElementById("geburtsdatum").value = getMember[0].geburtsdatum;
+   				document.getElementById("strasse").value = getMember[0].strasse;
+   				document.getElementById("strnummer").value = getMember[0].strnummer;
+   				document.getElementById("plz").value = getMember[0].plz;
+   				document.getElementById("ort").value = getMember[0].ort;
+   				document.getElementById("vereinsposition").value = getMember[0].vereinsposition;
+   				document.getElementById("grad").value = getMember[0].grad;
+   				document.getElementById("klassifizierung").value = getMember[0].klassifizierung;
+   				document.getElementById("eintritt").value = getMember[0].eintritt;
+   				document.getElementById("austritt").value = getMember[0].austritt;
+   				document.getElementById("von_dat").value = getMember[0].von_dat;
+   				document.getElementById("bis_dat").value = getMember[0].bis_dat;
+   				document.getElementById("erstellt").value = dateConversion(getMember[0].erstellt);
+   				document.getElementById("aktiv").value = activeValidation(getMember[0].aktiv);
+  			}
+		}
 
+	};
 
 
 
