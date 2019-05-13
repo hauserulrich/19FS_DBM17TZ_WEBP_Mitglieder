@@ -24,5 +24,6 @@ function function_forward(mitgliederObj){
 	};
 	table_site++;
 	console.log(table_site);
+	console.log("Eintrag: " + counter_minimum + " bis " + counter_maximum);
 }
 
