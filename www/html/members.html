@@ -1,9 +1,10 @@
-<html xmlns="https://www.w3.org/1999/xhtml">
+<html>
 <head>
 	<title>Mitgliederverwaltung</title>
 	<link rel="stylesheet" type="text/css" href="..\style\members.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="..\js\members.js"></script>
+	<meta charset="utf-8"> 
 </head>
 <body>
 	<form>
@@ -14,42 +15,41 @@
 		<p><label>Nachname*:</label>
 			<input id="nachname" type="text" name="nachname" onchange="nachNaValidation()" maxlength="30" placeholder="erforderlich" required></p>
 		<p><label>Vorname*:</label>
-			<input id="vorname"type="text" name="vorname" onchange="vorNaValidation()" maxlength="30" placeholder="erforderlich" required></p>
+			<input id="vorname" type="text" name="vorname" onchange="vorNaValidation()" maxlength="30" placeholder="erforderlich" required></p>
 		<p><label>Geburtsdatum*:</label>
-			<input id="geburtsdatum"type="date" name="geburtsdatum" required></p>
+			<input id="geburtsdatum" type="date" name="geburtsdatum" required></p>
 		<p><label>Strasse:</label>
-			<input id="strasse"type="text" name="strasse" onchange="strasseValidation()" maxlength="30"></p>
+			<input id="strasse" type="text" name="strasse" onchange="strasseValidation()" maxlength="30"></p>
 		<p><label>Strassennummer:</label>
-			<input id="strassennummer"type="text" maxlength="4" name="strnummer"></p>
+			<input id="strnummer" type="text" maxlength="4" name="strnummer"></p>
 		<p><label>PLZ:</label>
 			<input id="plz" type="text" name="plz" onchange="plzValidation()"></p>
 		<p><label>Ort:</label>
 			<input id="ort" type="text" name="ort" onchange="ortValidation()" maxlength="30"></p>
 		<p><label>Vereinsposition:</label>
-			<input id="vereinsposition"type="text" name="vereinsposition" maxlength="30"></p>
+			<input id="vereinsposition" type="text" name="vereinsposition" maxlength="30"></p>
 		<p><label>Grad:</label>
-			<input id="grad"type="text" name="grad" maxlength="30"></p>
+			<input id="grad" type="text" name="grad" maxlength="30"></p>
 		<p><label>Klassifizierung:</label>
-			<input id="klassifizierung"type="text" name="klassifizierung" maxlength="30"></p>
+			<input id="klassifizierung" type="text" name="klassifizierung" maxlength="30"></p>
 		<p><label>Eintritt:</label>
-			<input id="eintritt"type="date" name="eintritt"></p>	
+			<input id="eintritt" type="date" name="eintritt"></p>	
 		<p><label>Austritt:</label>
-			<input id="austritt"type="date" name="austritt"></p>
+			<input id="austritt" type="date" name="austritt"></p>
 		<p><label>Mitglied seit:</label>
-			<input id="von_dat"type="date" name="von_dat"></p>
+			<input id="von_dat" type="date" name="von_dat"></p>
 		<p><label>Mitglied bis:</label>
-			<input id="bis_dat"type="date" name="bis_dat"></p>
+			<input id="bis_dat" type="date" name="bis_dat"></p>
 		<p><label>Erstellt am:</label>
-			<input id="erstellt"type="date" name="erstellt"></p>
+			<input id="erstellt" type="date" name="erstellt"></p>
 		<p><label>Aktiv:</label>
-			<input id="aktiv"type="checkbox" name="aktiv"></p>
+			<input id="aktiv" type="checkbox" name="aktiv"></p>
 		<!-- neuer Umbruch -->
 		<br>
 		<!-- Buttons -->
 		<button id="buttonCreate" type="submit" value="Absenden" class="btn" onclick="createMember()">Speichern</button>
-		<button id="buttonDelete"type="button" class="btn">L&ouml;schen</button>
+		<button id="buttonDelete" type="button" class="btn">Löschen</button>
 	</form>
-</head>
 </body>
 </html>
 
