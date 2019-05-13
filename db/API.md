@@ -11,13 +11,14 @@ The returned JSON objects adhere to the column headers corresponding to the SQL 
 all URL's are given as a php target in the folder `db` of the web page itself
 Example URL: `all.php` -> location: `http://server/db/all.php`
 At present the server is located at: http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder
+
 ### Full database
 URL: `all.php` (HTTP GET).
 Each record is presented as a collection of key-value pairs with the field name as key.
 The complete DB representation is an array of records.
 
-### Single member
-URL: `getmember.php?id=value` (HTTP GET).
+### get single member
+URL: `getmember.php?m_id=value` (HTTP GET).
 The member is returned as a JSON object.
 return: member or error object
 
@@ -35,3 +36,10 @@ return: statement object
 Example for a new member: `setmember.php?nachname=Walter&vorname=Karl&geburtsdatum=1989-12-03&eintritt=2005-03-07&austritt=2008-08-02&von_dat=2006-12-08&bis_dat=2007-01-01&aktiv=true&strasse=Grenzweg&strnummer=17&plz=2503&ort=Bootshausen&vereinsposition=Kassier&grad=8.Dan&klassifizierung=Senior Trainer`
 
 Example for a member editing: `setmember.php?m_id=1&nachname=Walter&vorname=Karl&geburtsdatum=1989-12-03&eintritt=2005-03-07&austritt=2008-08-02&von_dat=2006-12-08&bis_dat=2007-01-01&aktiv=true&strasse=Grenzweg&strnummer=17&plz=2503&ort=Bootshausen&vereinsposition=Kassier&grad=8.Dan&klassifizierung=Senior Trainer`
+
+### delete a member
+URL: `deletemember.php?m_id=value` (HTTP GET).
+The member is deleted.
+return: error object
+
+Example for deleting a member: `deletemember.php?m_id=25`
