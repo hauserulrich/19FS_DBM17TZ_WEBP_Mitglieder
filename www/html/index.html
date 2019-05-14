@@ -28,6 +28,7 @@
 	<script src="../js/forward_button.js"></script>
 	<script src="../js/read_data.js"></script>
 	<script src="../js/backward_button.js"></script>
+	<script src="../js/sort.js"></script>
 	<script>
 	var table_site = 0;
 	var mitgliederObj;
@@ -71,6 +72,16 @@
 <!-- CONTENT FÜR TABELLE ETC. -->
 
 <div class="container" style="margin-top:20px">
+	<div class="dropdown_sort">
+		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+			Sortieren
+		</button>
+		<div class="dropdown-menu">
+			<option class="dropdown-item" onclick='sort("m_id")'>Mitglied ID</option>
+			<option class="dropdown-item" onclick='sort("nachname")'>Nachname</option>
+			<option class="dropdown-item" onclick='sort("vorname")'>Vorname</option>
+		</div>
+	</div> 
 
       <table class="table w-auto table-responsive-sm table-bordered table-hover">  
        <!-- Erstellung Tabellen-Style: sm, bordered, hover-->
