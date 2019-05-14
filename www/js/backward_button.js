@@ -16,12 +16,19 @@ function function_backward(){
 	console.log("Eintrag: " + counter_minimum + " bis " + counter_maximum);
 	}
 
- function disabled_button(){
+ function disabled_button(max_site){
 	if (table_site == 0) {
 		$("#backward").addClass("btn btn-primary btn-sm disabled");
-		console.log("button disabled");
+		$('#forward').removeClass('disabled');
+		//console.log("button disabled");
+	 }
+	 else if (table_site == max_site){
+		$("#forward").addClass("btn btn-primary btn-sm disabled");
+		$('#backward').removeClass('disabled');
+		 
 	 }
 	 else {
+		$('#forward').removeClass('disabled');
 		$('#backward').removeClass('disabled');
 	 };
  }
