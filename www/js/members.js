@@ -91,8 +91,10 @@ function ortValidation(){
 }
 
 function createMember(){
+	console.log("We have a new Member");
 	var member = new Object();
 	member.m_id = document.querySelector("#m_id").value;
+	console.log("Member ID: "+member.m_id);
 	member.nachname = document.querySelector("#nachname").value;
 	member.vorname = document.querySelector("#vorname").value;
 	member.geburtsdatum = document.querySelector("#geburtsdatum").value;
@@ -112,18 +114,28 @@ function createMember(){
 	console.log(member);
 	console.log(member.vorname);
 	var serverDestination = "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/setmember.php";
-	if (member.m_id != null) 
+	if (member.m_id == null || ' ' || 0) 
 	{	
-		var setMemberUrl = serverDestination + "?m_id=" + member.m_id + "&nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strnummer=" + member.strnummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
+		console.log("New member");
+		var setMemberUrl = serverDestination + "?nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strnummer=" + member.strnummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
 	} 
 	else
 	{
-		var setMemberUrl = serverDestination + "?nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strnummer=" + member.strnummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
+		console.log("Existing Member");
+		var setMemberUrl = serverDestination + "?m_id=" + member.m_id + "&nachname=" + member.nachname + "&vorname=" + member.vorname + "&geburtsdatum=" + member.geburtsdatum + "&strasse=" + member.strasse + "&strnummer=" + member.strnummer + "&plz=" + member.plz + "&ort=" + member.ort + "&vereinsposition=" + member.vereinsposition + "&grad=" + member.grad + "&klassifizierung=" + member.klassifizierung + "&eintritt=" + member.eintritt + "&austritt=" + member.austritt + "&von_dat=" + member.von_dat + "&bis_dat=" + member.bis_dat + "&erstellt=" + member.erstellt + "&aktiv=" + member.aktiv;
 	}
 	console.log(setMemberUrl);
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", setMemberUrl, true);
-	xmlhttp.send();
+
+	//xmlhttp.onreadystatechange = function() { // Call a function when the state changes.
+    //if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        // Request finished. Do processing here.
+    //}
+   xmlhttp.send();
+   console.log("STOP");
+//}
+	
 }
 
 //* Funktion für Datum, Stunden und Minuten werden weggeschnitten
@@ -188,7 +200,15 @@ function deleteMember() {
 	memberId = document.querySelector("#m_id").value;
 	
 	// if m_id is not null, bring a pop up to verify and delete entry on db
-	if (memberId != null) {
+	if (memberId == null || ' ' || 0)  {
+				// if member does not exist, ask for flushing form in gui or cancel action
+		information = "Der User existiert noch nicht in der Datenbank.\n Soll das Form gelöscht werden?";
+		if (confirm(information)) {
+			//window.location.reload(); 
+			document.getElementById("memberform").reset();
+		}
+
+	} else {
 		information = "Der User mit der ID "+memberId+" wird gelöscht.";
 		if (confirm(information)) {
 			var deleteMemberUrl = serverDestination + "?m_id=" + memberId ;
@@ -200,14 +220,7 @@ function deleteMember() {
 			information = "Der User mit der ID "+memberId+" wurde gelöscht.";
 			window.alert(information);
 		}
-
-	} else {
-		// if member does not exist, ask for flushing form in gui or cancel action
-		information = "Der User existiert noch nicht in der Datenbank.\n Soll das Form gelöscht werden?";
-		if (confirm(information)) {
-			//window.location.reload(); 
-			document.getElementById("memberform").reset();
-		}
+		
 	}
 }
 
