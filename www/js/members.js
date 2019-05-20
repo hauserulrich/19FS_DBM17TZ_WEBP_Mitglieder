@@ -126,21 +126,6 @@ function createMember(){
 	xmlhttp.send();
 }
 
-<<<<<<< HEAD
-/*Validierung bei Klick auf Button "Erstellen"*/
-function startValidation(){
-	var element = document.getElementById("buttonCreate");
-	element.onclick = validationMandatoryFields;
-}
-
-/*Validierung auf Pflichtfelder --> Funktioniert nicht! */
-function validationMandatoryFields(){
-	for (var i = 1; i <= 3; i++){
-		var inputLength = document.form["input"].value;
-		if (inputLength == ""){
-			document.getElementsByTagName("input")[i].style.backgroundColor = "pink";
-			alert("Pflichtfeld, bitte ausfüllen!").style.color = "red";
-=======
 //* Funktion für Datum, Stunden und Minuten werden weggeschnitten
 function dateConversion(dateDelivery){
 	dateDelivery = dateDelivery.slice(0,10);
@@ -222,19 +207,14 @@ function deleteMember() {
 		if (confirm(information)) {
 			//window.location.reload(); 
 			document.getElementById("memberform").reset();
->>>>>>> CreateMemberFields
 		}
 	}
 }
 
-<<<<<<< HEAD
-window.onload = startValidation;
-=======
 
 ;
 
 
 
 
->>>>>>> CreateMemberFields
 
