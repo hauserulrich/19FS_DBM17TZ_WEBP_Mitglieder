@@ -11,6 +11,7 @@ function init(){
 	// holt member id aus url
 	var url = new URL(window.location);
 	var m_id = url.searchParams.get("m_id");
+	console.log(m_id);
 	if (m_id != null) // wenn m_id existiert, dann besteht der User in der DB
 	{
 		getSingleMember(m_id); // hol die daten auf der DB
@@ -64,19 +65,6 @@ function strasseValidation(){
 		strasseEingabe.style.color ="black";
 	}
 }
-
-// Validierung bei StrassenNummer 
-// Braucht es nicht, da es auch 5B sein kann
-/*function strNuValidation(){
-	var regEx = "^\d+[a-zA-Z]*$";
-	var strNuEingabe = document.getElementById("strassennummer");
-	if (!strNuEingabe.value.match(regEx)){
-		strNuEingabe.style.color ="red";
-		alert("Bitte Zahl eingeben");
-	} else {
-		strNuEingabe.style.color ="black";
-	}
-}*/
 
 // Validierung bei PLZ
 function plzValidation(){
@@ -191,6 +179,40 @@ function getSingleMember(m_id){
 		}
 
 	};
+
+//* Function for deleting single members
+function deleteMember() {
+	// define destination API on server
+	var serverDestination = "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/deletemember.php";
+	// get m_id if existing
+	memberId = document.querySelector("#m_id").value;
+	
+	// if m_id is not null, bring a pop up to verify and delete entry on db
+	if (memberId != null) {
+		information = "Der User mit der ID "+memberId+" wird gelöscht.";
+		if (confirm(information)) {
+			var deleteMemberUrl = serverDestination + "?m_id=" + memberId ;
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", deleteMemberUrl, true);
+			xmlhttp.send();
+			document.getElementById("memberform").reset();
+			//inform user about deletion and flush form in gui
+			information = "Der User mit der ID "+memberId+" wurde gelöscht.";
+			window.alert(information);
+		}
+
+	} else {
+		// if member does not exist, ask for flushing form in gui or cancel action
+		information = "Der User existiert noch nicht in der Datenbank.\n Soll das Form gelöscht werden?";
+		if (confirm(information)) {
+			//window.location.reload(); 
+			document.getElementById("memberform").reset();
+		}
+	}
+}
+
+
+;
 
 
 

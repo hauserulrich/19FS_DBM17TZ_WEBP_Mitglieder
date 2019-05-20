@@ -7,10 +7,10 @@
 	<meta charset="utf-8"> 
 </head>
 <body>
-	<form>
+	<form id="memberform">
 		<!-- Mitglieder-ID, Kein Input möglich-->
 		<p><label>Mitglieder-ID:</label>
-			<input id="m_id" type="text" name="m_id" disabled></p>
+			<input id="m_id" type="number" name="m_id" disabled></p>
 		<!-- Inputfelder-->
 		<p><label>Nachname*:</label>
 			<input id="nachname" type="text" name="nachname" onchange="nachNaValidation()" maxlength="30" placeholder="erforderlich" required></p>
@@ -48,7 +48,7 @@
 		<br>
 		<!-- Buttons -->
 		<button id="buttonCreate" type="submit" value="Absenden" class="btn" onclick="createMember()">Speichern</button>
-		<button id="buttonDelete" type="button" class="btn">Löschen</button>
+		<button id="buttonDelete" type="button" class="btn" onclick="deleteMember()">Löschen</button>
 	</form>
 </body>
 </html>
