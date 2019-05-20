@@ -1,55 +1,57 @@
-<html xmlns="https://www.w3.org/1999/xhtml">
+<html>
 <head>
 	<title>Mitgliederverwaltung</title>
 	<link rel="stylesheet" type="text/css" href="..\style\members.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="../js/members.js"></script>
+	<script src="..\js\members.js"></script>
+	<meta charset="utf-8"> 
 </head>
 <body>
-	<form>
+	<form id="memberform">
 		<!-- Mitglieder-ID, Kein Input möglich-->
-		<p>Mitglieder-ID:</p>
-			<input id="m_id"type="text" name="m_id" disabled><br>
+		<p><label>Mitglieder-ID:</label>
+			<input id="m_id" type="number" name="m_id" disabled></p>
 		<!-- Inputfelder-->
-		<p>Nachname*:</p>
-			<input id="nachname" type="text" name="nachname"><br>
-		<p>Vorname*:</p>
-			<input id="vorname"type="text" name="vorname"><br>
-		<p>Geburtsdatum*:</p>
-			<input id="geburtsdatum"type="date" name="geburtsdatum"><br>
-		<p>Strasse:</p>
-			<input id="strasse"type="text" name="strasse"><br>
-		<p>Strassennummer:</p>
-			<input id="strassennummer"type="text" name="strnummer"><br>
-		<p>PLZ:</p>
-			<input id="plz"type="text" name="plz"><br>
-		<p>Ort:</p>
-			<input id="ort"type="text" name="ort"><br>
-		<p>Vereinsposition:</p>
-			<input id="vereinsposition"type="text" name="vereinsposition"><br>
-		<p>Grad:</p>
-			<input id="grad"type="text" name="grad"><br>
-		<p>Klassifizierung:</p>
-			<input id="klassifizierung"type="text" name="klassifizierung"><br>
-		<p>Eintritt:</p>
-			<input id="eintritt"type="date" name="eintritt"><br>	
-		<p>Austritt:</p>
-			<input id="austritt"type="date" name="austritt"><br>
-		<p>Mitglied seit:</p>
-			<input id="von_dat"type="date" name="von_dat"><br>
-		<p>Mitglied bis:</p>
-			<input id="bis_dat"type="date" name="bis_dat"><br>
-		<p>Erstellt am:</p>
-			<input id="erstellt"type="date" name="erstellt"><br>
-		<p>Aktiv:</p>
-			<input id="aktiv"type="checkbox" name="aktiv"><br>
+		<p><label>Nachname*:</label>
+			<input id="nachname" type="text" name="nachname" onchange="nachNaValidation()" maxlength="30" placeholder="erforderlich" required></p>
+		<p><label>Vorname*:</label>
+			<input id="vorname" type="text" name="vorname" onchange="vorNaValidation()" maxlength="30" placeholder="erforderlich" required></p>
+		<p><label>Geburtsdatum*:</label>
+			<input id="geburtsdatum" type="date" name="geburtsdatum" required></p>
+		<p><label>Strasse:</label>
+			<input id="strasse" type="text" name="strasse" onchange="strasseValidation()" maxlength="30"></p>
+		<p><label>Strassennummer:</label>
+			<input id="strnummer" type="text" maxlength="4" name="strnummer"></p>
+		<p><label>PLZ:</label>
+			<input id="plz" type="text" name="plz" onchange="plzValidation()"></p>
+		<p><label>Ort:</label>
+			<input id="ort" type="text" name="ort" onchange="ortValidation()" maxlength="30"></p>
+		<p><label>Vereinsposition:</label>
+			<input id="vereinsposition" type="text" name="vereinsposition" maxlength="30"></p>
+		<p><label>Grad:</label>
+			<input id="grad" type="text" name="grad" maxlength="30"></p>
+		<p><label>Klassifizierung:</label>
+			<input id="klassifizierung" type="text" name="klassifizierung" maxlength="30"></p>
+		<p><label>Eintritt:</label>
+			<input id="eintritt" type="date" name="eintritt"></p>	
+		<p><label>Austritt:</label>
+			<input id="austritt" type="date" name="austritt"></p>
+		<p><label>Mitglied seit:</label>
+			<input id="von_dat" type="date" name="von_dat"></p>
+		<p><label>Mitglied bis:</label>
+			<input id="bis_dat" type="date" name="bis_dat"></p>
+		<p><label>Erstellt am:</label>
+			<input id="erstellt" type="date" name="erstellt"></p>
+		<p><label>Aktiv:</label>
+			<input id="aktiv" type="checkbox" name="aktiv"></p>
 		<!-- neuer Umbruch -->
 		<br>
+		<!-- Buttons -->
+		<button id="buttonCreate" type="submit" value="Absenden" class="btn" onclick="createMember()">Speichern</button>
+		<button id="buttonDelete" type="button" class="btn" onclick="deleteMember()">Löschen</button>
 	</form>
-		<!-- Buttons-->
-	<button id="buttonCreate" type="button" class="btn">Erstellen</button>
-	<button id="buttonEdit" type="button" class="btn">Ändern</button>
-	<button id="buttonDelete"type="button" class="btn">Löschen</button>
 </body>
 </html>
+
+
 

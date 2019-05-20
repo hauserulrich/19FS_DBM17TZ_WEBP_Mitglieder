@@ -41,8 +41,7 @@ $m_id = $_GET['m_id'];
 
 try
 {
-	//edit member
-	$m_id = $_GET['m_id'];
+	//delete member
 	$sqlQuery = "DELETE FROM `19FS_DBM17TZ_WEBP_Mitglieder_mitglieder` WHERE m_id = $m_id";
 	if ($db->query($sqlQuery)) {
 		echo "{'error': 'OK'}";
