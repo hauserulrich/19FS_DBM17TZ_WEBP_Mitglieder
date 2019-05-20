@@ -18,7 +18,7 @@ function table_creation(counter_minimum, counter_maximum)
         var mitglieder_attribute = ["m_id", "nachname", "vorname", "geburtsdatum", "ort", "aktiv", "vereinsposition", "klassifizierung"]; /* The creation of an array which is getting the concerned data sets from the data base and fills the lines with the correct records in the tbody.*/
 
 
-        /*The for-directive execute that every cell is filled with the correct records, which were defined with the variable mitglieder_attribute. Once the maximum of the attributes is rechead (8) the loop is concluded. */ 
+        /* The for-directive execute that every cell is filled with the correct records, which were defined with the variable mitglieder_attribute. Once the maximum of the attributes is rechead (8) the loop is concluded. */ 
 
 
         for (var counter_cell = 0; counter_cell < mitglieder_attribute.length ; counter_cell++) 
