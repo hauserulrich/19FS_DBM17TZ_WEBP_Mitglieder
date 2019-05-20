@@ -3,3 +3,27 @@ body
 	background-color: white;
 	color: black;
 }
+
+
+label {
+	float: left;
+}
+
+input {
+	padding: 0.4%;
+	width: 20em;
+	border: 1px solid lightblue;
+}
+
+label {
+	text-align: left;
+	margin-left: 5em;
+	line-height: 1.5;
+	width: 10em;
+}
+
+button {
+	width: 15%;
+	margin-left: 12%;
+	margin-top: 2%;
+}
