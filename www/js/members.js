@@ -185,7 +185,8 @@ function leaveFieldColor() {
 
 // Validation of field "Nachname"
 function nachNaValidation() {
-	var regEx = "^[a-zA-Z]+$";
+	//Umlaute (äÄöÖüÜàÀéÉ)
+	var regEx = "^[a-zA-ZàÀéÉ\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]+$";
 	var nachNaEingabe = document.getElementById("nachname");
 	if (!nachNaEingabe.value.match(regEx)){
 		nachNaEingabe.style.color ="red";
@@ -197,7 +198,8 @@ function nachNaValidation() {
 
 // Validation of field "Vornamen"
 function vorNaValidation(){
-	var regEx = "^[a-zA-Z]+$";
+	//Umlaute (äÄöÖüÜàÀéÉ)
+	var regEx = "^[a-zA-ZàÀéÉ\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]+$";
 	var vorNaEingabe = document.getElementById("vorname");
 	if (!vorNaEingabe.value.match(regEx)){
 		vorNaEingabe.style.color ="red";
@@ -209,7 +211,8 @@ function vorNaValidation(){
 
 // Validation of field "Strasse" 
 function strasseValidation() {
-	var regEx = "^[a-zA-Z]+$";
+	//Umlaute (äÄöÖüÜàÀéÉ)
+	var regEx = "^[a-zA-ZàÀéÉ\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]+$";
 	var strasseEingabe = document.getElementById("strasse");
 	if (!strasseEingabe.value.match(regEx)){
 		strasseEingabe.style.color ="red";
@@ -233,7 +236,8 @@ function plzValidation() {
 
 // Validation of field "Ort"
 function ortValidation() {
-	var regEx = "^[a-zA-Z]+$";
+	//Umlaute (äÄöÖüÜàÀéÉ)
+	var regEx = "^[a-zA-ZàÀéÉ\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]+$";
 	var ortEingabe = document.getElementById("ort");
 	if (!ortEingabe.value.match(regEx)){
 		ortEingabe.style.color ="red";
