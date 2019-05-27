@@ -4,6 +4,10 @@ body
 	color: black;
 }
 
+.container{
+	margin-top:20px;
+}
+
 .footer {
     float: left;
     margin-top:50px;
@@ -14,4 +18,37 @@ body
     height: 60px;
     line-height: 60px; /* Vertically center the text there */
     background-color: #f5f5f5;
+}
+
+.jumbotron {
+   background: url('../images/background.jpg') no-repeat center fixed;
+   border-radius: 0rem;
+   margin-bottom:0px;
+   <!-- 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;
+   -->
+}
+
+.navbar navbar-expand-sm bg-dark navbar-dark {
+    background-color: #545454;
+}
+
+.navbar-nav li a {
+ line-height: 100px;
+}
+.text-left {
+        max-width: 40%;
+        float:left;
+    }
+.text-right {
+        max-width: 40%;
+        float: right;
+        }
+
+.nav-link img{
+	width: 100px;
+	height: 100px;
 }
