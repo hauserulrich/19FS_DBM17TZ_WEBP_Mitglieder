@@ -1,12 +1,74 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<!-- Begin HEAD content -->
+
+<!-- STYLE for NAVBAR LINKS -->
+<style>
+
+.navbar navbar-expand-sm bg-dark navbar-dark {
+    background-color: #545454;
+}
+
+.navbar-nav li a {
+ line-height: 100px;
+}
+.text-left {
+        max-width: 40%;
+        float:left;
+    }
+.text-right {
+        max-width: 40%;
+        float: right;
+        }
+		
+.jumbotron {
+   background: url('../images/background.jpg') no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;
+}
+</style>
 <head>
 	<title>Mitgliederverwaltung</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
 	<link rel="stylesheet" type="text/css" href="..\style\members.css">
+	<link href="../style/main.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="..\js\members.js"></script>
 	<meta charset="utf-8"> 
 </head>
 <body>
+<!-- JUMBOTRON -->
+<div class="jumbotron" style="margin-bottom:0px">
+<h1><font color="white"> Mitgliederverwaltungs Tool</font></h1>
+<p><font color="white">Hochschule für Technik und Wirtschaft in Chur</font></p>
+</div>	
+<!-- END JUMBOTRON -->
+
+<!-- NAVBAR button responsive small window mode -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav text-center">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html"> <img src="../images/sportclubhtw.jpg" alt="Sportclub HTW Chur" width="100px" height="100px"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Übersicht</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./members.html">Verwaltung</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<!-- END NAVBAR -->
+<br>
 	<form id="memberform">
 		<!-- Mitglieder-ID, Kein Input möglich-->
 		<p><label>Mitglieder-ID:</label>
@@ -47,9 +109,19 @@
 		<!-- neuer Umbruch -->
 		<br>
 		<!-- Buttons -->
-		<button id="buttonCreate" type="submit" value="Absenden" class="btn" onclick="createMember()">Speichern</button>
-		<button id="buttonDelete" type="button" class="btn" onclick="deleteMember()">Löschen</button>
+		<button id="buttonCreate" type="submit" value="Absenden" class="btn btn-primary btn-sm" onclick="createMember()">Speichern</button>
+		<button id="buttonDelete" type="button" class="btn btn-primary btn-sm" onclick="deleteMember()">Löschen</button>
 	</form>
+	<!-- FOOTER -->
+<footer class="footer">
+    <span class="text-muted">Projekt Wepprogrammieren HTW Chur</span>
+</footer>
+<!-- END FOOTER -->
+<!-- Jquery, ajax, bootstrap Linking -->
+    <link href="sticky-footer.css" rel="stylesheet.footer">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
 
