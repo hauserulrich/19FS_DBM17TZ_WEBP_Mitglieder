@@ -48,7 +48,7 @@ function getSingleMember(m_id) {
    				document.getElementById("von_dat").value = getMember[0].von_dat;
    				document.getElementById("bis_dat").value = getMember[0].bis_dat;
    				document.getElementById("erstellt").value = dateConversion(getMember[0].erstellt);
-   				document.getElementById("aktiv").value = activeValidation(getMember[0].aktiv);
+   				document.getElementById("aktiv").value = activeValidation(getMember[0].aktiv, getMember[0].m_id);
   			}
 	}
 }
@@ -109,7 +109,7 @@ function createMember() {
 	member.von_dat = document.querySelector("#von_dat").value;
 	member.bis_dat = document.querySelector("#bis_dat").value;
 	member.erstellt = dateConversion(document.querySelector("#erstellt").value);
-	member.aktiv = document.querySelector("#aktiv").value;
+	member.aktiv = activeValidation(document.querySelector("#aktiv").checked, "");
 	// console.log(member);
 	// console.log(member.vorname);
 	var serverDestination = "http://767727-7.web1.fh-htwchur.ch/19FS_DBM17TZ_WEBP_Mitglieder/db/setmember.php";
@@ -151,6 +151,7 @@ function createMember() {
    //console.log("STOP");	
 }
 
+
 // -------------------------------------------------- //
 // Validations of the fields						  //
 // -------------------------------------------------- //
@@ -163,11 +164,22 @@ function dateConversion(dateDelivery) {
 }
 
 // Function for Checkbox "Active"
-function activeValidation(checkbox) {
-	if (checkbox == "1") {
-    	document.getElementById("aktiv").checked = true;
+function activeValidation(checkbox, m_id) {
+	console.log("checkbox "+checkbox);
+	if (m_id === "") {
+		// handling for new user --> outgoing
+		if (checkbox == true) {
+    		return 1;
+		} else if (checkbox == false) {
+			return 0;
+		}
 	} else {
-		document.getElementById("aktiv").checked = false;
+		// handling for existing user --> incoming
+		if (checkbox == 1) {
+    		document.querySelector("#aktiv").checked = true;
+		} else {
+			document.querySelector("#aktiv").checked = false;
+		}
 	}
 }
 
